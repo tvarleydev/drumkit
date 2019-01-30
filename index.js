@@ -28,7 +28,8 @@ function playSound(input) {
 
     }
 }
-function buttonAnimation(input){
+
+function buttonAnimation(input) {
 
     var activeButton = document.querySelector("." + input);
 
@@ -40,13 +41,14 @@ function buttonAnimation(input){
     }, 100);
 
 }
-for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
-    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-        playSound(this.innerText);
-        buttonAnimation(this.innerText);
+document.querySelectorAll(".drum").forEach(
+    (drum) => {
+        drum.addEventListener("click", function () {
+            playSound(this.innerText);
+            buttonAnimation(this.innerText);
+        });
     });
-}
 
 
 document.addEventListener("keydown", function (event) {
